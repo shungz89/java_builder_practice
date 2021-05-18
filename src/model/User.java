@@ -1,38 +1,60 @@
 package model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class User {
     String name;
-    String dateOfBirth;
+    Date dateOfBirth;
     String gender;
+    int age;
 
-    public static class Builder {
+    public static class UserBuilder {
 
 
         private String name = "";
-        private String dateOfBirth = "";
+        private Date dateOfBirth = new Date();
         private String gender = "";
-
-        public Builder builder(){
-            return this;
-        }
+        private int age = 0;
 
 
-        public Builder setName(String name){
+        public UserBuilder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder setDateOfBirth(String dateOfBirth){
+        public UserBuilder setDateOfBirth(Date dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
+            setAge();
             return this;
         }
 
-        public Builder setGender(String gender){
+        public void setAge() {
+            this.age = getBirthDay(this.dateOfBirth);
+        }
+
+        public UserBuilder setGender(String gender) {
             this.gender = gender;
             return this;
         }
 
-        public User build(){
+        private int getBirthDay(Date dateOfBirth) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(dateOfBirth);
+
+            Calendar calNow = Calendar.getInstance();
+
+            long calDiff = calNow.getTimeInMillis() - cal.getTimeInMillis();
+
+            long difference_In_Years
+                    = (calDiff
+                    / (1000l * 60 * 60 * 24 * 365));
+
+            return (int) difference_In_Years;
+
+        }
+
+        public User build() {
             return new User(this);
         }
 
@@ -42,7 +64,7 @@ public class User {
         return name;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -50,21 +72,29 @@ public class User {
         return gender;
     }
 
-    private User(Builder builder){
-        name = builder.name;
-        dateOfBirth = builder.dateOfBirth;
-        gender = builder.gender;
+    public int getAge() {
+        return age;
+    }
+
+
+    private User(UserBuilder userBuilder) {
+        name = userBuilder.name;
+        dateOfBirth = userBuilder.dateOfBirth;
+        gender = userBuilder.gender;
+        age = userBuilder.age;
     }
 
     // toString
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User : {name="
                 + name
                 + ", dateOfBirth="
                 + dateOfBirth
                 + ", gender="
-                + gender + "}";
+                + gender
+                + ", age="
+                + age +
+                "}";
     }
 }

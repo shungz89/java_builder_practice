@@ -1,12 +1,22 @@
 import model.User;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class HelloWorld {
 
     public static void main(String[] args) {
         System.out.println("Hello CS \n");
-        User user = new User.Builder()
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 1988);
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date birthDate = cal.getTime();
+
+        User user = new User.UserBuilder()
                 .setName("Javaman")
-                .setDateOfBirth("18-5-2021")
+                .setDateOfBirth(birthDate)
                 .setGender("M")
                 .build();
 
