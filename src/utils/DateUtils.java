@@ -26,17 +26,18 @@ public class DateUtils {
     }
 
     public static int getBirthDay(Date dateOfBirth) {
-        long dateToday = new Date().getTime();
-        long dateOfBirthLong = dateOfBirth.getTime();
-
-        long calDiff = dateToday - dateOfBirthLong;
-
         long difference_In_Years
-                = (calDiff
+                = (dateDifference(dateOfBirth)
                 / (1000l * 60 * 60 * 24 * 365));
 
         return (int) difference_In_Years;
+    }
 
+    private static long dateDifference(Date dateOfBirth) {
+        long dateToday = new Date().getTime();
+        long dateOfBirthLong = dateOfBirth.getTime();
+
+        return dateToday - dateOfBirthLong;
     }
 
 
