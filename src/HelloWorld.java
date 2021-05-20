@@ -22,6 +22,7 @@ public class HelloWorld {
 
         System.out.println("UserName: "+user.getName());
         System.out.println("DOB: "+user.getGender());
+        System.out.println("Age: "+user.getAge());
         System.out.println("Gender "+user.getDateOfBirth());
 
         System.out.println("User JSON "+user);

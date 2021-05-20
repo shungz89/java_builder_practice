@@ -3,6 +3,8 @@ package model;
 import java.util.Calendar;
 import java.util.Date;
 
+import static utils.DateUtils.getBirthDay;
+
 public class User {
     String name;
     Date dateOfBirth;
@@ -38,21 +40,7 @@ public class User {
             return this;
         }
 
-        private int getBirthDay(Date dateOfBirth) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(dateOfBirth);
 
-            Calendar calNow = Calendar.getInstance();
-
-            long calDiff = calNow.getTimeInMillis() - cal.getTimeInMillis();
-
-            long difference_In_Years
-                    = (calDiff
-                    / (1000l * 60 * 60 * 24 * 365));
-
-            return (int) difference_In_Years;
-
-        }
 
         public User build() {
             return new User(this);
