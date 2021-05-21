@@ -1,3 +1,4 @@
+import model.ComplexNumber;
 import model.Product;
 import model.User;
 import utils.JSONUtils;
@@ -39,5 +40,16 @@ public class HelloWorld {
             e.printStackTrace();
         }
 
+
+
+
+    }
+
+    //Item 17 Effective Java: Minimize Mutability Example
+    private void tryingOutMinimizeMutability(){
+        ComplexNumber complexNumber = new ComplexNumber(5, 1);
+        ComplexNumber complexNumber2 = new ComplexNumber(7, 2);
+
+        complexNumber.plus(complexNumber2);
     }
 }
