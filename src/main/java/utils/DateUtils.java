@@ -1,9 +1,6 @@
 package utils;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
-import java.util.Calendar;
 import java.util.Date;
 
 
@@ -25,20 +22,7 @@ public class DateUtils {
         return format.format(time);
     }
 
-    public static int getBirthDay(Date dateOfBirth) {
-        long difference_In_Years
-                = (dateDifference(dateOfBirth)
-                / (1000l * 60 * 60 * 24 * 365));
 
-        return (int) difference_In_Years;
-    }
-
-    private static long dateDifference(Date dateOfBirth) {
-        long dateToday = new Date().getTime();
-        long dateOfBirthLong = dateOfBirth.getTime();
-
-        return dateToday - dateOfBirthLong;
-    }
 
 
 }

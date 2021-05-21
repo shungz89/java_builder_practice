@@ -1,14 +1,10 @@
 package model;
 
 
-import org.json.JSONObject;
+import utils.BirthdayHelper;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import static utils.DateUtils.getBirthDay;
 
 public class User {
     String name;
@@ -32,19 +28,18 @@ public class User {
 
         public UserBuilder setDateOfBirth(Date dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
-            setAge();
+            setAge(dateOfBirth);
             return this;
         }
 
-        public void setAge() {
-            this.age = getBirthDay(this.dateOfBirth);
+        private void setAge(Date dateOfBirth) {
+            this.age = new BirthdayHelper(dateOfBirth).getBirthDay();
         }
 
         public UserBuilder setGender(String gender) {
             this.gender = gender;
             return this;
         }
-
 
 
         public User build() {
@@ -76,8 +71,4 @@ public class User {
         gender = userBuilder.gender;
         age = userBuilder.age;
     }
-
-//    public String toJsonString() {
-//
-//    }
 }
