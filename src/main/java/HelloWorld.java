@@ -1,3 +1,4 @@
+import model.Product;
 import model.User;
 import utils.JSONUtils;
 
@@ -28,8 +29,12 @@ public class HelloWorld {
 
 //        System.out.println("User JSON "+user.toJsonString());
 
+        Product product = new Product.ProductBuilder().setName("Coca-Cola").setId(1578).build();
+
         try {
             System.out.println(JSONUtils.getFieldNamesAndValues(user, false));
+            System.out.println(JSONUtils.getFieldNamesAndValues(product, false));
+
         } catch (Exception e) {
             e.printStackTrace();
         }

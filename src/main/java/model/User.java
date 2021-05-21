@@ -44,25 +44,25 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public Date getDateOfBirth() {
-        return dateOfBirth;
+        return this.dateOfBirth;
     }
 
     public String getGender() {
-        return gender;
+        return this.gender;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     private User(UserBuilder userBuilder) {
-        name = userBuilder.name;
-        dateOfBirth = userBuilder.dateOfBirth;
-        gender = userBuilder.gender;
-        age = userBuilder.age;
+        this.name = userBuilder.name;
+        this.dateOfBirth = userBuilder.dateOfBirth;
+        this.gender = userBuilder.gender;
+        this.age = userBuilder.age;
     }
 }
