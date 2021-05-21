@@ -1,4 +1,5 @@
 import model.User;
+import utils.JSONUtils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -20,13 +21,18 @@ public class HelloWorld {
                 .setGender("M")
                 .build();
 
-        System.out.println("UserName: "+user.getName());
-        System.out.println("DOB: "+user.getGender());
-        System.out.println("Age: "+user.getAge());
-        System.out.println("Gender "+user.getDateOfBirth());
+        System.out.println("UserName: " + user.getName());
+        System.out.println("DOB: " + user.getGender());
+        System.out.println("Age: " + user.getAge());
+        System.out.println("Gender " + user.getDateOfBirth());
 
-        System.out.println("User JSON "+user);
+//        System.out.println("User JSON "+user.toJsonString());
 
+        try {
+            System.out.println(JSONUtils.getFieldNamesAndValues(user, false));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

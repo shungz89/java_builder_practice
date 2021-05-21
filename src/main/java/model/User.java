@@ -1,7 +1,12 @@
 package model;
 
+
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static utils.DateUtils.getBirthDay;
 
@@ -72,17 +77,7 @@ public class User {
         age = userBuilder.age;
     }
 
-    // toString
-    @Override
-    public String toString() {
-        return "User : {name="
-                + name
-                + ", dateOfBirth="
-                + dateOfBirth
-                + ", gender="
-                + gender
-                + ", age="
-                + age +
-                "}";
-    }
+//    public String toJsonString() {
+//
+//    }
 }
