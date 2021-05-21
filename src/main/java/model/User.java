@@ -13,13 +13,10 @@ public class User {
     int age;
 
     public static class UserBuilder {
-
-
         private String name = "";
         private Date dateOfBirth = new Date();
         private String gender = "";
         private int age = 0;
-
 
         public UserBuilder setName(String name) {
             this.name = name;
@@ -41,11 +38,9 @@ public class User {
             return this;
         }
 
-
         public User build() {
             return new User(this);
         }
-
     }
 
     public String getName() {
@@ -63,7 +58,6 @@ public class User {
     public int getAge() {
         return age;
     }
-
 
     private User(UserBuilder userBuilder) {
         name = userBuilder.name;
