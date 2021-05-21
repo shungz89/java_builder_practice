@@ -20,6 +20,5 @@ public class BirthdayHelper {
 
     private long dateDifference(){
         return dateToday - dateOfBirthLong;
-
     }
 }
