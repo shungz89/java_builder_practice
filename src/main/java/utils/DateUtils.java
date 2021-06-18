@@ -15,11 +15,11 @@ public class DateUtils {
     private static SimpleDateFormat dfYMD = new SimpleDateFormat("yyyy-MM-dd");
 
     public static String date2String(Date time) {
-        return dfYMD.format(time);
+        return date2String(time,null) ;
     }
 
     public static String date2String(Date time, SimpleDateFormat format) {
-        return format.format(time);
+        return (format != null) ? format.format(time) : dfYMD.format(time);
     }
 
 
